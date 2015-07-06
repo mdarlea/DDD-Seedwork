@@ -3,14 +3,14 @@
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
-    <title>Crosscutting Application Block - Authorization</title>
+    <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
     <licenseUrl>http://licenseUrl</licenseUrl>
     <projectUrl>http://mdarlea.github.io/DDD-Seedwork/</projectUrl>
     <iconUrl>http://iconUrl</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Seedwork for the Infrastructure Crosscutting Application Block</description>
+    <description>$description$</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright ©  Swaksoft 2015</copyright>
     <tags>Swaksoft DDD Seedwork Crosscutting Authorization</tags>

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Swaksoft.Core")]
+[assembly: AssemblyTitle("DDD Core Components")]
 [assembly: AssemblyDescription("Core components for DDD application blocks")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Swaksoft")]
+[assembly: AssemblyCompany("Michelle Darlea")]
 [assembly: AssemblyProduct("Swaksoft.Core")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

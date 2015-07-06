@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Swaksoft.Infrastructure.Data.NHibernate.Seedwork")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Infrastructure Application Block - Data - NHibernate")]
+[assembly: AssemblyDescription("Seedwork for the Infrastructure Data Application Block - NHibernate")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Swaksoft")]
 [assembly: AssemblyProduct("Swaksoft.Infrastructure.Data.NHibernate.Seedwork")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

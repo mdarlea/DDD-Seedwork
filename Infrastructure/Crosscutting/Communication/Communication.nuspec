@@ -13,16 +13,16 @@
     <description>$description$</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright ©  Swaksoft 2015</copyright>
-    <tags>Swaksoft DDD Seedwork Domain</tags>
+    <tags> Swaksoft DDD Seedwork Crosscutting</tags>
         <dependencies>
             <dependency id="Swaksoft.Core" version="1.0.5" />
-            <dependency id="Swaksoft.Infrastructure.Crosscutting" version="1.0.3" />
-            <dependency id="Swaksoft.Domain.Seedwork" version="1.0.0" />            
-        </dependencies>	        
+            <dependency id="Swaksoft.Infrastructure.Crosscutting" version="1.0.3" />           
+        </dependencies>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.Core" targetFramework="" />
-            <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" targetFramework="" />
             <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
-        </frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="" />
+            <frameworkAssembly assemblyName="Microsoft.Web.Infrastructure" targetFramework="" />
+        </frameworkAssemblies>        
   </metadata>
 </package>

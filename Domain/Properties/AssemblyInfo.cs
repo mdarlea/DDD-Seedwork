@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Swaksoft.Domain.Seedwork")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Domain Seedwork Application Block")]
+[assembly: AssemblyDescription("Seedwork for the Domain Application Block")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Michelle Darlea")]
 [assembly: AssemblyProduct("Swaksoft.Domain.Seedwork")]

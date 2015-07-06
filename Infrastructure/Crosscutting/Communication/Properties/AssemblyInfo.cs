@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Swaksoft.Infrastructure.Crosscutting.Communication")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Crosscutting Application Block - Communication")]
+[assembly: AssemblyDescription("Seedwork for the Infrastructure Crosscutting Application Block")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Swaksoft")]
+[assembly: AssemblyCompany("Michelle Darlea")]
 [assembly: AssemblyProduct("Swaksoft.Infrastructure.Crosscutting.Communication")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]

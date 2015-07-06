@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Swaksoft.Infrastructure.Data.Seedwork")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Infrastructure Application Block - Data")]
+[assembly: AssemblyDescription("Seedwork for the Infrastructure Data Application Block")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Swaksoft")]
+[assembly: AssemblyCompany("Michelle Darlea")]
 [assembly: AssemblyProduct("Swaksoft.Infrastructure.Data.Seedwork")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]

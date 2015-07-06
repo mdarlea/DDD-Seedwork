@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Swaksoft.Infrastructure.Crosscutting")]
+[assembly: AssemblyTitle("Crosscutting Application Block")]
 [assembly: AssemblyDescription("Seedwork for the Infrastructure Crosscutting Application Block")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Michelle Darlea")]
