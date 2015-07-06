@@ -8,18 +8,18 @@ Martin Fowler has a very interesting post related to Seedwork http://www.martinf
 ```
 PM> Install-Package Swaksoft.Core
 ```
-## Domain
+
 ### [Domain Seedwork Application Block](https://www.nuget.org/packages/Domain Seedwork Application Block/) ![NuGet version](https://badge.fury.io/nu/Domain Seedwork Application Block.png)
 ```
 PM> Install-Package Domain Seedwork Application Block
 ```
-## Application
+
 ### [Seedwork Application Block](https://www.nuget.org/packages/Swaksoft.Application.Seedwork/) ![NuGet version](https://badge.fury.io/nu/Swaksoft.Application.Seedwork.png)
 ```
 PM> Install-Package Swaksoft.Application.Seedwork
 ```
-## Infrastructure Seedwork Application Block
-### Crosscutting
+### Infrastructure Seedwork Application Block
+
 #### [Crosscutting Application Block](https://www.nuget.org/packages/Swaksoft.Infrastructure.Crosscutting/) ![NuGet version](https://badge.fury.io/nu/Swaksoft.Infrastructure.Crosscutting.png)
 ```
 PM> Install-Package Swaksoft.Infrastructure.Crosscutting
