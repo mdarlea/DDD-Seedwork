@@ -53,10 +53,28 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
                                new JProperty(".expires", ticket.Properties.ExpiresUtc.ToString()));
         }
 
+        #region IDisposable Members
+
+        /// <summary>
+        /// <see cref="M:System.IDisposable.Dispose"/>
+        /// </summary>
         public void Dispose()
         {
-            _authenticationTicketFactory.Dispose();
-            _authenticationTokenFactory.Dispose();
+            Dispose(true);
         }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_authenticationTicketFactory != null)
+            {
+                _authenticationTicketFactory.Dispose();    
+            }
+            if (_authenticationTokenFactory != null)
+            {
+                _authenticationTokenFactory.Dispose();    
+            }
+        }
+
+        #endregion
     }
 }

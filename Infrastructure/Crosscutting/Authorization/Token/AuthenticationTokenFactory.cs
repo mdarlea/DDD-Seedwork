@@ -94,10 +94,29 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
             return (result) ? refreshToken : null;
         }
 
+        #region IDisposable Members
+
+        /// <summary>
+        /// <see cref="M:System.IDisposable.Dispose"/>
+        /// </summary>
         public void Dispose()
         {
-            _applicationUserRepository.Dispose();
-            _authenticationTicketFactory.Dispose();
+            Dispose(true);
         }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_applicationUserRepository != null)
+            {
+                _applicationUserRepository.Dispose();    
+            }
+
+            if (_authenticationTicketFactory != null)
+            {
+                _authenticationTicketFactory.Dispose();    
+            }
+        }
+
+        #endregion
     }
 }

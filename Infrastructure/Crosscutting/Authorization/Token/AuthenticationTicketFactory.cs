@@ -51,12 +51,24 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
             };
         }
 
+        #region IDisposable Members
+
+        /// <summary>
+        /// <see cref="M:System.IDisposable.Dispose"/>
+        /// </summary>
         public void Dispose()
+        {
+            Dispose(true);
+        }
+
+        protected virtual void Dispose(bool disposing)
         {
             if (_userManager != null)
             {
                 _userManager.Dispose();
             }
         }
+
+        #endregion
     }
 }
