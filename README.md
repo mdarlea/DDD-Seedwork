@@ -40,6 +40,7 @@ PM> Install-Package Swaksoft.Infrastructure.Crosscutting.Communication
 
 ### Data
 - contains adapters for Entity Framwork and NHibernate
+
 #### [Data Application Block](https://www.nuget.org/packages/Swaksoft.Infrastructure.Data.Seedwork/) ![NuGet version](https://badge.fury.io/nu/Swaksoft.Infrastructure.Data.Seedwork.png)
 ```
 PM> Install-Package Swaksoft.Infrastructure.Data.Seedwork
