@@ -14,7 +14,7 @@ PM> Install-Package Swaksoft.Core
 PM> Install-Package Swaksoft.Domain.Seedwork
 ```
 
-### [Seedwork Application Block](https://www.nuget.org/packages/Swaksoft.Application.Seedwork/) ![NuGet version](https://badge.fury.io/nu/Swaksoft.Application.Seedwork.png)
+### [Application Seedwork Application Block](https://www.nuget.org/packages/Swaksoft.Application.Seedwork/) ![NuGet version](https://badge.fury.io/nu/Swaksoft.Application.Seedwork.png)
 ```
 PM> Install-Package Swaksoft.Application.Seedwork
 ```
