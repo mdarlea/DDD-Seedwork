@@ -51,9 +51,6 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\..\Communicator\packages\AutoMapper.3.3.0\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\Communicator\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Communicator\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>

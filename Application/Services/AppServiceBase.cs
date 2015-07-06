@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.Entity.Validation;
 using Swaksoft.Core;
 using Swaksoft.Infrastructure.Crosscutting.Logging;
 using System.Linq;
@@ -24,18 +23,18 @@ namespace Swaksoft.Application.Seedwork.Services
             {
                 return callback();
             }
-            catch (DbEntityValidationException dberr)
-            {
-                var errors = dberr.EntityValidationErrors.SelectMany(ve => ve.ValidationErrors);
+            //catch (DbEntityValidationException dberr)
+            //{
+            //    var errors = dberr.EntityValidationErrors.SelectMany(ve => ve.ValidationErrors);
 
-                var message = new StringBuilder(dberr.Message);
-                foreach (var err in errors)
-                {
-                    message.AppendLine(err.ErrorMessage);
-                }
+            //    var message = new StringBuilder(dberr.Message);
+            //    foreach (var err in errors)
+            //    {
+            //        message.AppendLine(err.ErrorMessage);
+            //    }
 
-                return GetError<TResult>(dberr,message.ToString());
-            }
+            //    return GetError<TResult>(dberr,message.ToString());
+            //}
             catch (Exception ex)
             {
                 return GetError<TResult>(ex);
