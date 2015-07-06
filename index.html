@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="DDD-Seedwork : DDD Seedwork Application Blocks">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>DDD-Seedwork</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/mdarlea/DDD-Seedwork">View on GitHub</a>
+
+          <h1 id="project_title">DDD-Seedwork</h1>
+          <h2 id="project_tagline">DDD Seedwork Application Blocks</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/mdarlea/DDD-Seedwork/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/mdarlea/DDD-Seedwork/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="ddd---seedwork-application-blocks" class="anchor" href="#ddd---seedwork-application-blocks" aria-hidden="true"><span class="octicon octicon-link"></span></a>DDD - Seedwork Application Blocks</h1>
+
+<p>DDD-Seedwork is a set of lightweight Application Blocks with the goal of help on the development of NLayered DDD Applications. It is limited, of course, only to the "coding" part of a project related to Domain Driven Design (DDD) - code based on DDD patterns, does not mean having a DDD solution.</p>
+
+<p>Martin Fowler has a very interesting post related to Seedwork <a href="http://www.martinfowler.com/bliki/Seedwork.html">http://www.martinfowler.com/bliki/Seedwork.html</a>. Seedwork is the most possible reusable library, that can serve the maximum number of Apps Contexts. Framework, for us, will be libraries related to some specific approach or technology.</p>
+
+<h2>
+<a id="ddd-core-components-" class="anchor" href="#ddd-core-components-" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://www.nuget.org/packages/Swaksoft.Core/">DDD Core Components</a> <img src="https://badge.fury.io/nu/Swaksoft.Core.png" alt="NuGet version">
+</h2>
+
+<pre><code>PM&gt; Install-Package Swaksoft.Core
+</code></pre>
+
+<h3>
+<a id="domain-seedwork-application-block-" class="anchor" href="#domain-seedwork-application-block-" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://www.nuget.org/packages/Swaksoft.Domain.Seedwork/">Domain Seedwork Application Block</a> <img src="https://badge.fury.io/nu/Swaksoft.Domain.Seedwork.png" alt="NuGet version">
+</h3>
+
+<pre><code>PM&gt; Install-Package Swaksoft.Domain.Seedwork
+</code></pre>
+
+<h3>
+<a id="seedwork-application-block-" class="anchor" href="#seedwork-application-block-" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://www.nuget.org/packages/Swaksoft.Application.Seedwork/">Seedwork Application Block</a> <img src="https://badge.fury.io/nu/Swaksoft.Application.Seedwork.png" alt="NuGet version">
+</h3>
+
+<pre><code>PM&gt; Install-Package Swaksoft.Application.Seedwork
+</code></pre>
+
+<h3>
+<a id="infrastructure-seedwork-application-blocks" class="anchor" href="#infrastructure-seedwork-application-blocks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Infrastructure Seedwork Application Blocks</h3>
+
+<h4>
+<a id="crosscutting-application-block-" class="anchor" href="#crosscutting-application-block-" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://www.nuget.org/packages/Swaksoft.Infrastructure.Crosscutting/">Crosscutting Application Block</a> <img src="https://badge.fury.io/nu/Swaksoft.Infrastructure.Crosscutting.png" alt="NuGet version">
+</h4>
+
+<pre><code>PM&gt; Install-Package Swaksoft.Infrastructure.Crosscutting
+</code></pre>
+
+<ul>
+<li>Logging</li>
+<li>Caching</li>
+<li>Validation</li>
+<li>Type mapping</li>
+</ul>
+
+<h4>
+<a id="authorization-crosscutting-application-block-" class="anchor" href="#authorization-crosscutting-application-block-" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://www.nuget.org/packages/Swaksoft.Infrastructure.Crosscutting.Authorization/">Authorization Crosscutting Application Block</a> <img src="https://badge.fury.io/nu/Swaksoft.Infrastructure.Crosscutting.Authorization.png" alt="NuGet version">
+</h4>
+
+<pre><code>PM&gt; Install-Package Swaksoft.Infrastructure.Crosscutting.Authorization
+</code></pre>
+
+<h4>
+<a id="communication-crosscutting-application-block-" class="anchor" href="#communication-crosscutting-application-block-" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://www.nuget.org/packages/Swaksoft.Infrastructure.Crosscutting.Communication/">Communication Crosscutting Application Block</a> <img src="https://badge.fury.io/nu/Swaksoft.Infrastructure.Crosscutting.Communication.png" alt="NuGet version">
+</h4>
+
+<pre><code>PM&gt; Install-Package Swaksoft.Infrastructure.Crosscutting.Communication
+</code></pre>
+
+<h3>
+<a id="data" class="anchor" href="#data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data</h3>
+
+<ul>
+<li>contains adapters for Entity Framwork and NHibernate</li>
+</ul>
+
+<h4>
+<a id="data-application-block-" class="anchor" href="#data-application-block-" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://www.nuget.org/packages/Swaksoft.Infrastructure.Data.Seedwork/">Data Application Block</a> <img src="https://badge.fury.io/nu/Swaksoft.Infrastructure.Data.Seedwork.png" alt="NuGet version">
+</h4>
+
+<pre><code>PM&gt; Install-Package Swaksoft.Infrastructure.Data.Seedwork
+</code></pre>
+
+<h4>
+<a id="data-application-block---nhibernate-" class="anchor" href="#data-application-block---nhibernate-" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://www.nuget.org/packages/Swaksoft.Infrastructure.Data.NHibernate.Seedwork/">Data Application Block - NHibernate</a> <img src="https://badge.fury.io/nu/Swaksoft.Infrastructure.Data.NHibernate.Seedwork.png" alt="NuGet version">
+</h4>
+
+<pre><code>PM&gt; Install-Package Swaksoft.Infrastructure.Data.NHibernate.Seedwork
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">DDD-Seedwork maintained by <a href="https://github.com/mdarlea">mdarlea</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
