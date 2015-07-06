@@ -18,7 +18,7 @@ PM> Install-Package Domain Seedwork Application Block
 ```
 PM> Install-Package Swaksoft.Application.Seedwork
 ```
-### Infrastructure Seedwork Application Block
+### Infrastructure Seedwork Application Blocks
 
 #### [Crosscutting Application Block](https://www.nuget.org/packages/Swaksoft.Infrastructure.Crosscutting/) ![NuGet version](https://badge.fury.io/nu/Swaksoft.Infrastructure.Crosscutting.png)
 ```
