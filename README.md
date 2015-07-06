@@ -9,7 +9,7 @@ Martin Fowler has a very interesting post related to Seedwork http://www.martinf
 PM> Install-Package Swaksoft.Core
 ```
 
-### [Domain Seedwork Application Block](https://www.nuget.org/packages/Domain Seedwork Application Block/) ![NuGet version](https://badge.fury.io/nu/Domain Seedwork Application Block.png)
+### [Domain Seedwork Application Block](https://www.nuget.org/packages/Swaksoft.Domain.Seedwork/) ![NuGet version](https://badge.fury.io/nu/Swaksoft.Domain.Seedwork.png)
 ```
 PM> Install-Package Domain Seedwork Application Block
 ```
