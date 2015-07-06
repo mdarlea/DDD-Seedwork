@@ -17,9 +17,7 @@
         <dependencies>
             <dependency id="Swaksoft.Core" version="1.0.5" />
             <dependency id="Swaksoft.Infrastructure.Crosscutting" version="1.0.3" />
-            <dependency id="Swaksoft.Domain.Seedwork" version="1.0.0" />
-            <dependency id="log4net" version="2.0.3" />
-            <dependency id="AutoMapper" version="3.3.1" />
+            <dependency id="Swaksoft.Domain.Seedwork" version="1.0.0" />            
         </dependencies>	
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.Core" targetFramework="" />
