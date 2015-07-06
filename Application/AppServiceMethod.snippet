@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Application Service Method Snippet</Title>
+      <Shortcut>srvm</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Swaksoft.Application.Seedwork.Services</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Swaksoft.Core</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>resultType</ID>
+          <ToolTip>Action result type</ToolTip>
+          <Default>ActionResult</Default>
+        </Literal>
+        <Literal>
+          <ID>methodName</ID>
+          <ToolTip>Method name</ToolTip>
+          <Default>MethodName</Default>
+        </Literal>
+        <Literal>
+          <ID>requestType</ID>
+          <ToolTip>Request type</ToolTip>
+          <Default>Request</Default>
+        </Literal>
+        <Literal>
+          <ID>request</ID>
+          <ToolTip>Request name</ToolTip>
+          <Default>request</Default>
+        </Literal>        
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[
+        public $resultType$ $methodName$($requestType$ $request$)
+        {
+            if ($request$ == null) throw new ArgumentNullException("$request$");
+
+            return Call(() =>
+            {
+
+                
+                //returns success
+                return new $resultType$
+                {
+                    Status = ActionResultCode.Success
+                };
+            });
+        }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

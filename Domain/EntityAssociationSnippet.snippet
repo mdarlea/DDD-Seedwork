@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Entity Association - Collection Snippet</Title>
+      <Shortcut>asoc</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Collections.Generic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Association type</ToolTip>
+        </Literal>
+        <Literal>
+          <ID>fieldName</ID>
+          <ToolTip>Field name</ToolTip>
+          <Default>fieldName</Default>
+        </Literal>
+        <Literal>
+          <ID>propertyName</ID>
+          <ToolTip>Property name</ToolTip>
+          <Default>PropertyName</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[
+        private HashSet<$type$> _$fieldName$;
+        public virtual ICollection<$type$> $propertyName$
+        {
+            get
+            {
+                return _$fieldName$ ?? (_$fieldName$ = new HashSet<$type$>());
+            }
+            set
+            {
+                _$fieldName$ = new HashSet<$type$>(value);
+            }
+        }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

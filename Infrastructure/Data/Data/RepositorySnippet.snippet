@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Repository Implementation Snippet</Title>
+      <Shortcut>repo</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Collections.Generic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Entity Type</ToolTip>
+          <Default>EntityType</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[
+      /// <summary>
+      /// The $type$ repository implementation
+      /// </summary>
+      public class $type$Repository
+        : Repository<$type$>, I$type$Repository
+      {
+          public $type$Repository(ITransactionUnitOfWork unitOfWork) 
+              : base(unitOfWork)
+          {
+          }
+      }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
