@@ -10,21 +10,19 @@
     <projectUrl>http://mdarlea.github.io/DDD-Seedwork/</projectUrl>
     <iconUrl>http://iconUrl</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Seedwork for the Application Block</description>
+    <description>Seedwork for the Domain Application Block</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright ©  Swaksoft 2015</copyright>
-    <tags>Swaksoft DDD Seedwork Application</tags>
+    <tags>Swaksoft DDD Seedwork Domain</tags>
         <dependencies>
             <dependency id="Swaksoft.Core" version="1.0.5" />
             <dependency id="Swaksoft.Infrastructure.Crosscutting" version="1.0.3" />
             <dependency id="Swaksoft.Domain.Seedwork" version="1.0.0" />            
-        </dependencies>	
+        </dependencies>	        
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.Core" targetFramework="" />
             <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" targetFramework="" />
             <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
-            <frameworkAssembly assemblyName="System.Data" targetFramework="" />
-            <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="" />
-        </frameworkAssemblies>	
+        </frameworkAssemblies>
   </metadata>
 </package>
