@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Swaksoft.Infrastructure.Crosscutting.Authorization")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Crosscutting Application Block - Authorization")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Authorization")]
+[assembly: AssemblyCompany("Michelle Darlea")]
+[assembly: AssemblyProduct("Swaksoft.Infrastructure.Crosscutting.Authorization")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

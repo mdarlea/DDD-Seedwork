@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Swaksoft.Domain.Seedwork")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Swaksoft")]
+[assembly: AssemblyCompany("Michelle Darlea")]
 [assembly: AssemblyProduct("Swaksoft.Domain.Seedwork")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]

@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Swaksoft.Application.Seedwork")]
 [assembly: AssemblyDescription("Seedwork for the Application Block")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Swaksoft")]
+[assembly: AssemblyCompany("Michelle Darlea")]
 [assembly: AssemblyProduct("Swaksoft.Application.Seedwork")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]

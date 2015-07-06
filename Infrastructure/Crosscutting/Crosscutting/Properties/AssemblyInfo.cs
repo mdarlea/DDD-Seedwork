@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Swaksoft.Infrastructure.Crosscutting")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Seedwork for the Infrastructure Crosscutting Application Block")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Swaksoft")]
+[assembly: AssemblyCompany("Michelle Darlea")]
 [assembly: AssemblyProduct("Swaksoft.Infrastructure.Crosscutting")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
