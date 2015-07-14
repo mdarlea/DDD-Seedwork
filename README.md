@@ -1,5 +1,5 @@
 # DDD - Seedwork Application Blocks
-MyGet<br>([feed](https://www.myget.org/F/ddd-seedwork/)) | ![#](https://img.shields.io/myget/ddd-seedwork/vpre/ddd-seedwork.svg?style=flat) | ![#](https://img.shields.io/myget/ddd-seedwork/vpre/ddd-seedwork.runner.dnx.svg?style=flat) | ![#](https://img.shields.io/myget/ddd-seedwork/vpre/ddd-seedwork.runner.visualstudio.svg?style=flat)
+MyGet<br>([feed](https://www.myget.org/F/ddd-seedwork/)) | ![#](https://img.shields.io/myget/ddd-seedwork/v/FSharpSupport.svg?style=flat) | ![#](https://img.shields.io/myget/ddd-seedwork/dt/FSharpSupport.svg?style=flat)
 
 
 DDD-Seedwork is a set of lightweight Application Blocks with the goal of help on the development of NLayered DDD Applications. It is limited, of course, only to the "coding" part of a project related to Domain Driven Design (DDD) - code based on DDD patterns, does not mean having a DDD solution.
