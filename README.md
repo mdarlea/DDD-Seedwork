@@ -1,4 +1,4 @@
-# DDD - Seedwork Application Blocks
+# DDD - Seedwork Application Blocks [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/7k05x649fxadmk64/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/ddd-seedwork/branch/master)
 MyGet ([feed](https://www.myget.org/F/ddd-seedwork/)) | ![#](https://img.shields.io/myget/ddd-seedwork/v/FSharpSupport.svg?style=flat) | ![#](https://img.shields.io/myget/ddd-seedwork/dt/FSharpSupport.svg?style=flat)
 
 
