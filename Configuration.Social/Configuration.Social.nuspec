@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://licenseUrl</licenseUrl>
+    <projectUrl>http://mdarlea.github.io/DDD-Seedwork/</projectUrl>
+    <iconUrl>http://iconUrl</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright ©  Swaksoft 2015</copyright>
+    <tags>Swaksoft Configuration OAuth</tags>     
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.Configuration" targetFramework="" />            
+        </frameworkAssemblies>
+  </metadata>
+</package>
