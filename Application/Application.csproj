@@ -64,8 +64,9 @@
       <HintPath>..\packages\Swaksoft.Core.1.0.7.0\lib\net45\Swaksoft.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Swaksoft.Domain.Seedwork">
-      <HintPath>..\..\DDD\packages\Swaksoft.Domain.Seedwork.1.0.6.0\lib\net45\Swaksoft.Domain.Seedwork.dll</HintPath>
+    <Reference Include="Swaksoft.Domain.Seedwork, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swaksoft.Domain.Seedwork.1.0.7.0\lib\net45\Swaksoft.Domain.Seedwork.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Swaksoft.Infrastructure.Crosscutting, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Swaksoft.Infrastructure.Crosscutting.1.0.4\lib\net45\Swaksoft.Infrastructure.Crosscutting.dll</HintPath>
