@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Swaksoft.Configuration.Social")]
+[assembly: AssemblyTitle("OAuth Consumer Key Configuration")]
 [assembly: AssemblyDescription("Configuration section for external providers such as Facebook, Google")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Michelle Darlea")]
