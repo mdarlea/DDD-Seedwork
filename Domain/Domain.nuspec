@@ -13,10 +13,7 @@
     <description>$description$</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright ©  Swaksoft 2015</copyright>
-    <tags>Swaksoft DDD Seedwork Domain</tags>
-        <dependencies>
-            <dependency id="Swaksoft.Core" version="1.0.6" />            
-        </dependencies>	        
+    <tags>Swaksoft DDD Seedwork Domain</tags>     
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.Core" targetFramework="" />
             <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" targetFramework="" />
