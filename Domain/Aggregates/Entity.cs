@@ -10,9 +10,9 @@ namespace Swaksoft.Domain.Seedwork.Aggregates
             Id = -1;
         }
 
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //[Key]
-        //public override int Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        public override int Id { get; set; }
 
         public override bool IsTransient()
         {

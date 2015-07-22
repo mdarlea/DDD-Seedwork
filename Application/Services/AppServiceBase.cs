@@ -3,6 +3,7 @@ using Swaksoft.Core;
 using Swaksoft.Infrastructure.Crosscutting.Logging;
 using System.Linq;
 using System.Text;
+using Swaksoft.Application.Seedwork.Validation;
 using Swaksoft.Core.Dto;
 
 namespace Swaksoft.Application.Seedwork.Services
@@ -22,6 +23,15 @@ namespace Swaksoft.Application.Seedwork.Services
             try
             {
                 return callback();
+            }
+            catch (ValidationErrorsException ve)
+            {
+                var message = new StringBuilder();
+                foreach (var err in ve.ValidationErrors)
+                {
+                    message.AppendLine(err);
+                }
+                return GetError<TResult>(ve, message.ToString());
             }
             //catch (DbEntityValidationException dberr)
             //{

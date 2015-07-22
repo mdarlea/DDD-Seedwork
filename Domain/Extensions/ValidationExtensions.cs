@@ -42,7 +42,8 @@ namespace Swaksoft.Domain.Seedwork.Extensions
         public EntityValidation<T> Validate<TValue>(Expression<Func<T, TValue>> propertyExpression, Predicate<TValue> validationPredicate, string message)
         {
             //get hte property name
-            var propertyName = string.Empty;
+            var body = propertyExpression.Body as MemberExpression;
+            var propertyName = (body != null) ? body.Member.Name : string.Empty;
 
             var value = propertyExpression.Compile()(_source);
             if (validationPredicate(value))
