@@ -62,9 +62,10 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestClient\HttpClientRequest.cs" />
+    <Compile Include="RestClient\IHttpActions.cs" />
     <Compile Include="RestClient\IRestClientFactory.cs" />
-    <Compile Include="RestClient\RestClientFactory.cs" />
-    <Compile Include="RestClient\RestRequest.cs" />
+    <Compile Include="RestClient\XmlHttpActions.cs" />
+    <Compile Include="RestClient\JsonHttpActions.cs" />
     <Compile Include="RestClient\RestRequestAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
