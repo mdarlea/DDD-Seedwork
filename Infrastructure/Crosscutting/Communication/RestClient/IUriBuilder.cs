@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Swaksoft.Infrastructure.Crosscutting.RestClient
+namespace Swaksoft.Infrastructure.Crosscutting.Communication.RestClient
 {
     public interface IUriBuilder
     {

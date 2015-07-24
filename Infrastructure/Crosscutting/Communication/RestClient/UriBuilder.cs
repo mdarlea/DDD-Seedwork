@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Swaksoft.Infrastructure.Crosscutting.RestClient
+namespace Swaksoft.Infrastructure.Crosscutting.Communication.RestClient
 {
     public class UriBuilder : IUriBuilder
     {

@@ -1,5 +1,4 @@
 ﻿using System;
-using Swaksoft.Infrastructure.Crosscutting.RestClient;
 
 namespace Swaksoft.Infrastructure.Crosscutting.Communication.RestClient
 {

@@ -2,7 +2,6 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using Swaksoft.Infrastructure.Crosscutting.RestClient;
 
 namespace Swaksoft.Infrastructure.Crosscutting.Communication.RestClient
 {
