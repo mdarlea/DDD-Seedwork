@@ -8,6 +8,6 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
     public interface IAccessTokenGenerator<in TUser> : IDisposable
         where TUser:IdentityUser
     {
-        Task<JObject> GenerateLocalAccessToken(TUser user, string clientId);
+        Task<JObject> GenerateLocalAccessToken(TUser user, string clientId, TimeSpan tokenExpiration);
     }
 }

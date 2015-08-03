@@ -19,8 +19,10 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
             _userManager = userManager;
         }
 
-        public AuthenticationTicket Create(TUser user, string clientId)
+        public AuthenticationTicket Create(TUser user, string clientId, TimeSpan tokenExpiration)
         {
+            if (user == null) throw new ArgumentNullException("user");
+
             var userName = user.UserName;
 
             var identity = _userManager.CreateIdentity(user, OAuthDefaults.AuthenticationType);
@@ -29,15 +31,13 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
             identity.AddClaim(new Claim("client_id", clientId));
             identity.AddClaim(new Claim("role", "user"));
 
-            var properties = CreateProperties(userName, clientId);
+            var properties = CreateProperties(userName, clientId, tokenExpiration);
 
             return new AuthenticationTicket(identity, properties);
         }
-        
-        private static AuthenticationProperties CreateProperties(string userName, string clientId)
-        {
-            var tokenExpiration = TimeSpan.FromDays(1);
 
+        private static AuthenticationProperties CreateProperties(string userName, string clientId, TimeSpan tokenExpiration)
+        {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
                 { "userName", userName },

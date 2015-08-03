@@ -13,10 +13,7 @@
     <description>$description$</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright ©  Swaksoft 2015</copyright>
-    <tags>Swaksoft DDD Seedwork Crosscutting Authorization</tags>
-        <dependencies>
-            <dependency id="Swaksoft.Core" version="1.0.5" />
-        </dependencies>
+    <tags>Swaksoft DDD Seedwork Crosscutting Authorization</tags>        
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.Core" targetFramework="" />
             <frameworkAssembly assemblyName="System.Xml" targetFramework="" />

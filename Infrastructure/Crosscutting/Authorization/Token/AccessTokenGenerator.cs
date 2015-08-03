@@ -23,14 +23,14 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
             _authenticationTokenFactory = authenticationTokenFactory;
         }
 
-        public async Task<JObject> GenerateLocalAccessToken(TUser user,string clientId)
+        public async Task<JObject> GenerateLocalAccessToken(TUser user, string clientId, TimeSpan tokenExpiration)
         {
             if (user == null) throw new ArgumentNullException("user");
             if (string.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException("clientId");
 
             //await _signInManager.SignInAsync(user, isPersistent: true, rememberBrowser: false);
 
-            var ticket = _authenticationTicketFactory.Create(user, clientId);
+            var ticket = _authenticationTicketFactory.Create(user, clientId,tokenExpiration);
             var protectedTicket = _secureDataFormat.Protect(ticket);
 
             var refreshToken = await _authenticationTokenFactory.CreateRefreshTokenAsync(ticket, protectedTicket);
@@ -40,7 +40,7 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
                 return null;
             }
 
-            var tokenExpiration = ticket.Properties.ExpiresUtc.GetValueOrDefault().DateTime;
+            var expiration = ticket.Properties.ExpiresUtc.GetValueOrDefault().DateTime;
 
             return new JObject(new JProperty("hasRegistered", true),
                                new JProperty("externalUserName", user.UserName),
@@ -48,7 +48,7 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
                                //new JProperty("access_token", protectedTicket),
                                new JProperty("access_token", refreshToken),
                                new JProperty("token_type", "bearer"),
-                               new JProperty("expires_in", tokenExpiration.Second.ToString()),
+                               new JProperty("expires_in", expiration.Second.ToString()),
                                new JProperty(".issued", ticket.Properties.IssuedUtc.ToString()),
                                new JProperty(".expires", ticket.Properties.ExpiresUtc.ToString()));
         }

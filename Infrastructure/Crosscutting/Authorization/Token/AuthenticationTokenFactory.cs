@@ -62,7 +62,10 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
             if (user == null) throw new ArgumentNullException("user");
             if (refreshToken == null) throw new ArgumentNullException("refreshToken");
 
-            var ticket = _authenticationTicketFactory.Create(user, refreshToken.ClientId);
+            //get the tokn expiration from the refresh token
+            var tokenExpiration = refreshToken.ExpiresUtc.Subtract(refreshToken.IssuedUtc);
+
+            var ticket = _authenticationTicketFactory.Create(user, refreshToken.ClientId,tokenExpiration);
             ticket.Properties.IssuedUtc = DateTime.UtcNow;
             ticket.Properties.ExpiresUtc = DateTime.UtcNow.AddMinutes(1);
                 // This needs to be after Issued, not the real expiry time
