@@ -9,6 +9,7 @@ namespace Swaksoft.Core.Dto
         public ActionResultCode Status { get; set; }
         public string Message { get; set; }
         public string Code { get; set; }
+        public IEnumerable<string> Errors { get; set; } 
 
         public override string ToString()
         {
