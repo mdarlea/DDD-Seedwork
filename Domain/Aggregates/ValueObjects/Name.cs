@@ -39,9 +39,11 @@ namespace Swaksoft.Domain.Seedwork.Aggregates.ValueObjects
         private Name() { } //required for EF
 
         [Required]
+        [MaxLength(100)]
         public string FirstName { get; private set; }
 
         [Required]
+        [MaxLength(100)]
         public string LastName { get; private set; }
 
         public string MiddleName { get; private set; }
