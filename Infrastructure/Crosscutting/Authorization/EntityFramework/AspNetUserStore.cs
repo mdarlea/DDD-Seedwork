@@ -2,16 +2,15 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Swaksoft.Infrastructure.Crosscutting.Authorization.Entities;
-using Swaksoft.Infrastructure.Crosscutting.Authorization.EntityFramework;
 
-namespace Swaksoft.Infrastructure.Crosscutting.Authorization
+namespace Swaksoft.Infrastructure.Crosscutting.Authorization.EntityFramework
 {
     public class AspNetUserStore<TUser> : UserStore<TUser>
          where TUser : IdentityUser
     {
-        private readonly AuthorizationDbContext<TUser> context;
+        private readonly AspNetDbContext<TUser> context;
 
-        public AspNetUserStore(AuthorizationDbContext<TUser> context)
+        public AspNetUserStore(AspNetDbContext<TUser> context)
             :base(context)
         {
             if (context == null) throw new ArgumentNullException("context");

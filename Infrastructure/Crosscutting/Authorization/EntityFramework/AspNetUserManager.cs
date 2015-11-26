@@ -4,7 +4,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Swaksoft.Infrastructure.Crosscutting.Authorization.Entities;
 
-namespace Swaksoft.Infrastructure.Crosscutting.Authorization
+namespace Swaksoft.Infrastructure.Crosscutting.Authorization.EntityFramework
 {
     public abstract class AspNetUserManager<TUser> : UserManager<TUser>
          where TUser : IdentityUser

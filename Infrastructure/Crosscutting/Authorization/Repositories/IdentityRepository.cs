@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Swaksoft.Infrastructure.Crosscutting.Authorization.Entities;
+using Swaksoft.Infrastructure.Crosscutting.Authorization.EntityFramework;
 
 namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Repositories
 {

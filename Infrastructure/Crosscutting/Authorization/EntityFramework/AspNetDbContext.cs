@@ -4,10 +4,10 @@ using Swaksoft.Infrastructure.Crosscutting.Authorization.Entities;
 
 namespace Swaksoft.Infrastructure.Crosscutting.Authorization.EntityFramework
 {
-    public class AuthorizationDbContext<TUser> : IdentityDbContext<TUser>
+    public class AspNetDbContext<TUser> : IdentityDbContext<TUser>
         where TUser: IdentityUser
     {
-        public AuthorizationDbContext(string nameOrConnectionString)
+        public AspNetDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString, throwIfV1Schema: false)
         {
         }

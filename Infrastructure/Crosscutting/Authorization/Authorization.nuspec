@@ -19,6 +19,7 @@
             <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
             <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="" />
             <frameworkAssembly assemblyName="System.Data" targetFramework="" />
+			<frameworkAssembly assemblyName="System.Configuration" targetFramework="" />
         </frameworkAssemblies>
   </metadata>
 </package>
