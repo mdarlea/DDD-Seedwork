@@ -26,13 +26,14 @@ namespace Swaksoft.Domain.Seedwork.Aggregates.ValueObjects
         }
         #endregion equality
 
-        public Name(string firstName, string lastName)
+        public Name(string firstName, string lastName, string middleName=null)
         {
             if (string.IsNullOrEmpty(firstName)) throw new ArgumentNullException("firstName");
             if (string.IsNullOrEmpty(lastName)) throw new ArgumentNullException("lastName");
 
             FirstName = firstName;
             LastName = lastName;
+            MiddleName = middleName;
         }
 
         private Name() { } //required for EF
@@ -43,6 +44,6 @@ namespace Swaksoft.Domain.Seedwork.Aggregates.ValueObjects
         [Required]
         public string LastName { get; private set; }
 
-        public string MiddleName { get; set; }
+        public string MiddleName { get; private set; }
     }
 }

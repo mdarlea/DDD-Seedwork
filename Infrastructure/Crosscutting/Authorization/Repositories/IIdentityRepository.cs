@@ -14,7 +14,6 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Repositories
         Client FindClient(string clientId);
         Task<bool> AddRefreshToken(RefreshToken token);
         Task<bool> RemoveRefreshToken(string refreshTokenId);
-        Task<bool> RemoveRefreshToken(RefreshToken refreshToken);
         List<RefreshToken> GetAllRefreshTokens();
 
         Task<RefreshToken> FindRefreshTokenAsync(string refreshTokenId);

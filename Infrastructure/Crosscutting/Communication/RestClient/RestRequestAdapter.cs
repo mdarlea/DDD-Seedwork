@@ -28,7 +28,12 @@ namespace Swaksoft.Infrastructure.Crosscutting.Communication.RestClient
     {
         private readonly IUriBuilder _uriBuilder;
         private readonly IHttpClientRequest _httpClientRequest;
-        
+
+        public RestRequestAdapter(IUriBuilder uriBuilder)
+            : this(uriBuilder, new HttpClientRequest())
+        {
+        }
+
         public RestRequestAdapter(IUriBuilder uriBuilder, IHttpClientRequest httpClientRequest)
         {
             if (uriBuilder == null) throw new ArgumentNullException("uriBuilder");
