@@ -10,8 +10,8 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
     public class AuthenticationTokenFactory<TUser> : IAuthenticationTokenFactory
         where TUser:IdentityUser
     {
-        private readonly IIdentityRepository<TUser> _applicationUserRepository;
-        private readonly IAuthenticationTicketFactory<TUser> _authenticationTicketFactory;
+        private readonly IIdentityRepository<TUser> applicationUserRepository;
+        private readonly IAuthenticationTicketFactory<TUser> authenticationTicketFactory;
 
         public AuthenticationTokenFactory(
             IIdentityRepository<TUser> applicationUserRepository,
@@ -19,8 +19,8 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
         {
             if (applicationUserRepository == null) throw new ArgumentNullException("applicationUserRepository");
             if (authenticationTicketFactory == null) throw new ArgumentNullException("authenticationTicketFactory");
-            _applicationUserRepository = applicationUserRepository;
-            _authenticationTicketFactory = authenticationTicketFactory;
+            this.applicationUserRepository = applicationUserRepository;
+            this.authenticationTicketFactory = authenticationTicketFactory;
         }
 
         public AuthenticationTicket IssueAuthenticationTicket(string token)
@@ -28,11 +28,11 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
             if (string.IsNullOrWhiteSpace(token)) throw new ArgumentNullException("token");
 
             var hashedTokenId = token;
-            var refreshToken = _applicationUserRepository.FindRefreshToken(hashedTokenId);
+            var refreshToken = applicationUserRepository.FindRefreshToken(hashedTokenId);
 
             if (refreshToken != null && refreshToken.ExpiresUtc > DateTime.UtcNow)
             {
-                var user = _applicationUserRepository.FindByName(refreshToken.Subject);
+                var user = applicationUserRepository.FindByName(refreshToken.Subject);
 
                 return GetAuthenticationTicket(user, refreshToken);
             }
@@ -45,11 +45,11 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
             if (string.IsNullOrWhiteSpace(token)) throw new ArgumentNullException("token");
 
             var hashedTokenId = token;
-            var refreshToken = await _applicationUserRepository.FindRefreshTokenAsync(hashedTokenId);
+            var refreshToken = await applicationUserRepository.FindRefreshTokenAsync(hashedTokenId);
 
             if (refreshToken != null && refreshToken.ExpiresUtc > DateTime.UtcNow)
             {
-                var user = await _applicationUserRepository.FindByNameAsync(refreshToken.Subject);
+                var user = await applicationUserRepository.FindByNameAsync(refreshToken.Subject);
 
                 return  GetAuthenticationTicket(user, refreshToken);
             }
@@ -65,7 +65,7 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
             //get the tokn expiration from the refresh token
             var tokenExpiration = refreshToken.ExpiresUtc.Subtract(refreshToken.IssuedUtc);
 
-            var ticket = _authenticationTicketFactory.Create(user, refreshToken.ClientId,tokenExpiration);
+            var ticket = authenticationTicketFactory.Create(user, refreshToken.ClientId,tokenExpiration);
             ticket.Properties.IssuedUtc = DateTime.UtcNow;
             ticket.Properties.ExpiresUtc = DateTime.UtcNow.AddMinutes(1);
                 // This needs to be after Issued, not the real expiry time
@@ -92,7 +92,7 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
                 ProtectedTicket = protectedTicket
             };
 
-            var result = await _applicationUserRepository.AddRefreshToken(token);
+            var result = await applicationUserRepository.AddRefreshToken(token);
 
             return (result) ? refreshToken : null;
         }
@@ -109,14 +109,14 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
 
         protected virtual void Dispose(bool disposing)
         {
-            if (_applicationUserRepository != null)
+            if (applicationUserRepository != null)
             {
-                _applicationUserRepository.Dispose();    
+                applicationUserRepository.Dispose();    
             }
 
-            if (_authenticationTicketFactory != null)
+            if (authenticationTicketFactory != null)
             {
-                _authenticationTicketFactory.Dispose();    
+                authenticationTicketFactory.Dispose();    
             }
         }
 

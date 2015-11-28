@@ -5,18 +5,19 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
+using Swaksoft.Infrastructure.Crosscutting.Authorization.EntityFramework;
 
 namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
 {
     public class AuthenticationTicketFactory<TUser> : IAuthenticationTicketFactory<TUser>
         where TUser:IdentityUser
     {
-        private readonly UserManager<TUser> _userManager;
+        private readonly AspNetUserManager<TUser> userManager;
 
-        public AuthenticationTicketFactory(UserManager<TUser> userManager)
+        public AuthenticationTicketFactory(AspNetUserManager<TUser> userManager)
         {
             if (userManager == null) throw new ArgumentNullException("userManager");
-            _userManager = userManager;
+            this.userManager = userManager;
         }
 
         public AuthenticationTicket Create(TUser user, string clientId, TimeSpan tokenExpiration)
@@ -25,7 +26,7 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
 
             var userName = user.UserName;
 
-            var identity = _userManager.CreateIdentity(user, OAuthDefaults.AuthenticationType);
+            var identity = userManager.CreateIdentity(user, OAuthDefaults.AuthenticationType);
 
             identity.AddClaim(new Claim(ClaimTypes.Name, userName));
             identity.AddClaim(new Claim("client_id", clientId));
@@ -63,9 +64,9 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
 
         protected virtual void Dispose(bool disposing)
         {
-            if (_userManager != null)
+            if (userManager != null)
             {
-                _userManager.Dispose();
+                userManager.Dispose();
             }
         }
 

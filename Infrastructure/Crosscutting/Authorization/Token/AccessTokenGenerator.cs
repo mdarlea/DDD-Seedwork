@@ -9,18 +9,18 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
     public class AccessTokenGenerator<TUser> : IAccessTokenGenerator<TUser>
         where TUser: IdentityUser
     {
-        private readonly IAuthenticationTicketFactory<TUser> _authenticationTicketFactory;
-        private readonly ISecureDataFormat<AuthenticationTicket> _secureDataFormat;
-        private readonly IAuthenticationTokenFactory _authenticationTokenFactory;
+        private readonly IAuthenticationTicketFactory<TUser> authenticationTicketFactory;
+        private readonly ISecureDataFormat<AuthenticationTicket> secureDataFormat;
+        private readonly IAuthenticationTokenFactory authenticationTokenFactory;
 
         public AccessTokenGenerator(
             IAuthenticationTicketFactory<TUser> authenticationTicketFactory,
             ISecureDataFormat<AuthenticationTicket> secureDataFormat,
             IAuthenticationTokenFactory authenticationTokenFactory)
         {
-            _authenticationTicketFactory = authenticationTicketFactory;
-            _secureDataFormat = secureDataFormat;
-            _authenticationTokenFactory = authenticationTokenFactory;
+            this.authenticationTicketFactory = authenticationTicketFactory;
+            this.secureDataFormat = secureDataFormat;
+            this.authenticationTokenFactory = authenticationTokenFactory;
         }
 
         public async Task<JObject> GenerateLocalAccessToken(TUser user, string clientId, TimeSpan tokenExpiration)
@@ -30,10 +30,10 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
 
             //await _signInManager.SignInAsync(user, isPersistent: true, rememberBrowser: false);
 
-            var ticket = _authenticationTicketFactory.Create(user, clientId,tokenExpiration);
-            var protectedTicket = _secureDataFormat.Protect(ticket);
+            var ticket = authenticationTicketFactory.Create(user, clientId,tokenExpiration);
+            var protectedTicket = secureDataFormat.Protect(ticket);
 
-            var refreshToken = await _authenticationTokenFactory.CreateRefreshTokenAsync(ticket, protectedTicket);
+            var refreshToken = await authenticationTokenFactory.CreateRefreshTokenAsync(ticket, protectedTicket);
 
             if (string.IsNullOrWhiteSpace(refreshToken))
             {
@@ -65,13 +65,13 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
 
         protected virtual void Dispose(bool disposing)
         {
-            if (_authenticationTicketFactory != null)
+            if (authenticationTicketFactory != null)
             {
-                _authenticationTicketFactory.Dispose();    
+                authenticationTicketFactory.Dispose();    
             }
-            if (_authenticationTokenFactory != null)
+            if (authenticationTokenFactory != null)
             {
-                _authenticationTokenFactory.Dispose();    
+                authenticationTokenFactory.Dispose();    
             }
         }
 
