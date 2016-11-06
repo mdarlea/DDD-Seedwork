@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>$version$</version>
+    <version>1.0.7.0</version>
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
@@ -17,8 +17,7 @@
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.Core" targetFramework="" />
             <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
-            <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="" />
-            <frameworkAssembly assemblyName="Microsoft.Web.Infrastructure" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="" />           
 			<frameworkAssembly assemblyName="System.Net.Http" targetFramework="" />
 			<frameworkAssembly assemblyName="System.Net.Http.Formatting" targetFramework="" />
         </frameworkAssemblies>        

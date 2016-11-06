@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Swaksoft.Infrastructure.Crosscutting.Authorization.Entities;
 
-namespace Swaksoft.Infrastructure.Crosscutting.Authorization.EntityFramework
+namespace Swaksoft.Infrastructure.Crosscutting.Authorization
 {
-    public abstract class AspNetUserManager<TUser> : UserManager<TUser>
-         where TUser : IdentityUser
+    public abstract class UserManager<TUser> : Microsoft.AspNet.Identity.UserManager<TUser>
+         where TUser : class,IUser<string>
     {
-        private readonly AspNetUserStore<TUser> store;
+        private readonly IUserStore<TUser> store;
         private bool disposed;
 
-        protected AspNetUserManager(AspNetUserStore<TUser> store) 
+        protected UserManager(IUserStore<TUser> store) 
             : base(store)
         {
-            if (store == null) throw new ArgumentNullException("store");
+            if (store == null) throw new ArgumentNullException(nameof(store));
             this.store = store;
         }
 
@@ -50,7 +49,7 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.EntityFramework
         public virtual bool RemoveRefreshToken(string refreshTokenId)
         {
             ThrowIfDisposed();
-            if (string.IsNullOrWhiteSpace(refreshTokenId)) throw new ArgumentNullException("refreshTokenId");
+            if (string.IsNullOrWhiteSpace(refreshTokenId)) throw new ArgumentNullException(nameof(refreshTokenId));
 
             var refreshToken = FindRefreshToken(refreshTokenId);
             if (refreshToken == null) return false;
@@ -62,7 +61,7 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.EntityFramework
         public virtual async Task<bool> AddRefreshTokenAsync(RefreshToken refreshToken)
         {
             ThrowIfDisposed();
-            if (refreshToken == null) throw new ArgumentNullException("refreshToken");
+            if (refreshToken == null) throw new ArgumentNullException(nameof(refreshToken));
             
             var result = await store.AddRefreshtokenAsync(refreshToken);
             return result > 0;

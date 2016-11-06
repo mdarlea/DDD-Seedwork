@@ -96,6 +96,7 @@
     <Compile Include="Configuration\EmailSection.cs" />
     <Compile Include="Configuration\LoginElement.cs" />
     <Compile Include="EmailService.cs" />
+    <Compile Include="IUserStore.cs" />
     <Compile Include="Token\AccessTokenGenerator.cs" />
     <Compile Include="Token\AuthenticationTicketFactory.cs" />
     <Compile Include="Token\AuthenticationTokenFactory.cs" />
@@ -104,11 +105,9 @@
     <Compile Include="Token\IAccessTokenGenerator.cs" />
     <Compile Include="Token\IAuthenticationTicketFactory.cs" />
     <Compile Include="Token\IAuthenticationTokenFactory.cs" />
-    <Compile Include="Repositories\IdentityRepository.cs" />
-    <Compile Include="Repositories\IIdentityRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\RefreshToken.cs" />
-    <Compile Include="EntityFramework\AspNetUserManager.cs" />
+    <Compile Include="UserManager.cs" />
     <Compile Include="EntityFramework\AspNetUserStore.cs" />
   </ItemGroup>
   <ItemGroup>

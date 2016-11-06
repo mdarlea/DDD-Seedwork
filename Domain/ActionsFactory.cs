@@ -6,13 +6,13 @@ namespace Swaksoft.Domain.Seedwork
 {
     public interface IActionsFactory<TActions>
     {
-        TActions Create(string key);
+        TActions Resolve(string key);
     }
 
     public interface IActionsFactory<in TKey, TActions>
     {
-        TActions Create(TKey key);
-        T Create<T>(TKey key) where T:TActions;
+        TActions Resolve(TKey key);
+        T Resolve<T>(TKey key) where T:TActions;
     }
 
 
@@ -20,7 +20,7 @@ namespace Swaksoft.Domain.Seedwork
     {
         private readonly IDictionary<string, Func<TActions>> _actionsRegistryByKey = new Dictionary<string, Func<TActions>>();
 
-        public TActions Create(string key)
+        public TActions Resolve(string key)
         {
             var action = _actionsRegistryByKey.SingleOrDefault(d => d.Key == key);
             if (action.Value == null)
@@ -28,9 +28,18 @@ namespace Swaksoft.Domain.Seedwork
             return action.Value();
         }
 
-        protected void Initialize(string key, Func<TActions> action)
+        protected void Register(string key, Func<TActions> action)
         {
             _actionsRegistryByKey.Add(key, action);
+        }
+    }
+
+    public abstract class ActionsFactoryFor<TActions> : ActionsFactory<TActions>
+        where TActions : new() 
+    {
+        protected void RegisterFor(string key)
+        {
+            Register(key,()=>new TActions());
         }
     }
 
@@ -38,7 +47,7 @@ namespace Swaksoft.Domain.Seedwork
     {
         private readonly IDictionary<Type, Func<object,TActions>> _actionsRegistry = new Dictionary<Type, Func<object,TActions>>();
     
-        public TActions Create(TKey key)
+        public TActions Resolve(TKey key)
         {
             var type = key.GetType();
             var action = _actionsRegistry.SingleOrDefault(d => d.Key == type);
@@ -47,13 +56,13 @@ namespace Swaksoft.Domain.Seedwork
             return action.Value(key);
         }
 
-        public T Create<T>(TKey key)
+        public T Resolve<T>(TKey key)
             where T : TActions
         {
-            return (T) Create(key);
+            return (T) Resolve(key);
         }
     
-        protected void Initialize<T>(Func<T,TActions> action) where T:TKey
+        protected void Register<T>(Func<T,TActions> action) where T:TKey
         {
             _actionsRegistry.Add(typeof(T), key => action((T)key));
         }

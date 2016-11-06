@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Swaksoft.Core.Crypto;
 using Swaksoft.Infrastructure.Crosscutting.Authorization.Entities;
-using Swaksoft.Infrastructure.Crosscutting.Authorization.Repositories;
+using Swaksoft.Infrastructure.Crosscutting.Authorization.EntityFramework;
 namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
 {
     public class AuthenticationTokenFactory<TUser> : IAuthenticationTokenFactory
         where TUser:IdentityUser
     {
-        private readonly IIdentityRepository<TUser> applicationUserRepository;
+        private readonly UserManager<TUser> userManager;
         private readonly IAuthenticationTicketFactory<TUser> authenticationTicketFactory;
 
-        public AuthenticationTokenFactory(
-            IIdentityRepository<TUser> applicationUserRepository,
+        public AuthenticationTokenFactory(UserManager<TUser> userManager,
             IAuthenticationTicketFactory<TUser> authenticationTicketFactory)
         {
-            if (applicationUserRepository == null) throw new ArgumentNullException("applicationUserRepository");
-            if (authenticationTicketFactory == null) throw new ArgumentNullException("authenticationTicketFactory");
-            this.applicationUserRepository = applicationUserRepository;
+            if (userManager == null) throw new ArgumentNullException(nameof(userManager));
+            if (userManager == null) throw new ArgumentNullException(nameof(userManager));
+            if (authenticationTicketFactory == null) throw new ArgumentNullException(nameof(authenticationTicketFactory));
+            this.userManager = userManager;
             this.authenticationTicketFactory = authenticationTicketFactory;
         }
 
@@ -28,11 +29,11 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
             if (string.IsNullOrWhiteSpace(token)) throw new ArgumentNullException("token");
 
             var hashedTokenId = token;
-            var refreshToken = applicationUserRepository.FindRefreshToken(hashedTokenId);
+            var refreshToken = userManager.FindRefreshToken(hashedTokenId);
 
             if (refreshToken != null && refreshToken.ExpiresUtc > DateTime.UtcNow)
             {
-                var user = applicationUserRepository.FindByName(refreshToken.Subject);
+                var user = userManager.FindByName(refreshToken.Subject);
 
                 return GetAuthenticationTicket(user, refreshToken);
             }
@@ -45,11 +46,11 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
             if (string.IsNullOrWhiteSpace(token)) throw new ArgumentNullException("token");
 
             var hashedTokenId = token;
-            var refreshToken = await applicationUserRepository.FindRefreshTokenAsync(hashedTokenId);
+            var refreshToken = await userManager.FindRefreshTokenAsync(hashedTokenId);
 
             if (refreshToken != null && refreshToken.ExpiresUtc > DateTime.UtcNow)
             {
-                var user = await applicationUserRepository.FindByNameAsync(refreshToken.Subject);
+                var user = await userManager.FindByNameAsync(refreshToken.Subject);
 
                 return  GetAuthenticationTicket(user, refreshToken);
             }
@@ -92,7 +93,7 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
                 ProtectedTicket = protectedTicket
             };
 
-            var result = await applicationUserRepository.AddRefreshToken(token);
+            var result = await userManager.AddRefreshTokenAsync(token);
 
             return (result) ? refreshToken : null;
         }
@@ -109,9 +110,9 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
 
         protected virtual void Dispose(bool disposing)
         {
-            if (applicationUserRepository != null)
+            if (userManager != null)
             {
-                applicationUserRepository.Dispose();    
+                userManager.Dispose();    
             }
 
             if (authenticationTicketFactory != null)

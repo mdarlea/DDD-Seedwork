@@ -12,9 +12,9 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
     public class AuthenticationTicketFactory<TUser> : IAuthenticationTicketFactory<TUser>
         where TUser:IdentityUser
     {
-        private readonly AspNetUserManager<TUser> userManager;
+        private readonly UserManager<TUser> userManager;
 
-        public AuthenticationTicketFactory(AspNetUserManager<TUser> userManager)
+        public AuthenticationTicketFactory(UserManager<TUser> userManager)
         {
             if (userManager == null) throw new ArgumentNullException("userManager");
             this.userManager = userManager;

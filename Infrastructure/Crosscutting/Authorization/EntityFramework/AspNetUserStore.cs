@@ -5,15 +5,15 @@ using Swaksoft.Infrastructure.Crosscutting.Authorization.Entities;
 
 namespace Swaksoft.Infrastructure.Crosscutting.Authorization.EntityFramework
 {
-    public class AspNetUserStore<TUser> : UserStore<TUser>
-         where TUser : IdentityUser
+    public class AspNetUserStore<TUser> : UserStore<TUser>, IUserStore<TUser> 
+        where TUser : IdentityUser
     {
         private readonly AspNetDbContext<TUser> context;
 
         public AspNetUserStore(AspNetDbContext<TUser> context)
             :base(context)
         {
-            if (context == null) throw new ArgumentNullException("context");
+            if (context == null) throw new ArgumentNullException(nameof(context));
             this.context = context;
         }
 
@@ -67,6 +67,14 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.EntityFramework
 
             context.RefreshTokens.Add(refreshToken);
             return context.SaveChangesAsync();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            if (!disposing) return;
+
+            context.Dispose();
         }
     }
 }
