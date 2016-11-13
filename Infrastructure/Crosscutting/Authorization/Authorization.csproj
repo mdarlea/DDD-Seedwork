@@ -97,6 +97,7 @@
     <Compile Include="Configuration\LoginElement.cs" />
     <Compile Include="EmailService.cs" />
     <Compile Include="IUserStore.cs" />
+    <Compile Include="Token\AccessToken.cs" />
     <Compile Include="Token\AccessTokenGenerator.cs" />
     <Compile Include="Token\AuthenticationTicketFactory.cs" />
     <Compile Include="Token\AuthenticationTokenFactory.cs" />

@@ -5,9 +5,9 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Configuration
 {
     public class EmailElement : ConfigurationElement
     {
-        [ConfigurationProperty("name", IsRequired = true)]
-        [StringValidator(MinLength = 2, MaxLength = 60)]
-        public String Name
+        [ConfigurationProperty("name", IsRequired = false)]
+        //[StringValidator(MinLength = 2, MaxLength = 60)]
+        public string Name
         {
             get
             {
@@ -20,7 +20,7 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Configuration
         }
 
         [ConfigurationProperty("address", IsRequired = true)]
-        [RegexStringValidator("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$")]
+        //[RegexStringValidator("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$")]
         public String Address
         {
             get

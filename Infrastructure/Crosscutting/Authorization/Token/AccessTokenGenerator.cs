@@ -23,7 +23,7 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
             this.authenticationTokenFactory = authenticationTokenFactory;
         }
 
-        public async Task<JObject> GenerateLocalAccessToken(TUser user, string clientId, TimeSpan tokenExpiration)
+        public async Task<AccessToken> GenerateLocalAccessToken(TUser user, string clientId, TimeSpan tokenExpiration)
         {
             if (user == null) throw new ArgumentNullException("user");
             if (string.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException("clientId");
@@ -42,15 +42,17 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
 
             var expiration = ticket.Properties.ExpiresUtc.GetValueOrDefault().DateTime;
 
-            return new JObject(new JProperty("hasRegistered", true),
-                               new JProperty("externalUserName", user.UserName),
-                               new JProperty("userName", user.UserName),
-                               //new JProperty("access_token", protectedTicket),
-                               new JProperty("access_token", refreshToken),
-                               new JProperty("token_type", "bearer"),
-                               new JProperty("expires_in", expiration.Second.ToString()),
-                               new JProperty(".issued", ticket.Properties.IssuedUtc.ToString()),
-                               new JProperty(".expires", ticket.Properties.ExpiresUtc.ToString()));
+            return new AccessToken
+            {
+                HasRegistered = true,
+                ExternalUserName = user.UserName,
+                UserName = user.UserName,
+                Token = refreshToken,
+                TokenType = "bearer",
+                ExpiresIn = expiration.Second,
+                Issued = ticket.Properties.IssuedUtc.ToString(),
+                Expires = ticket.Properties.ExpiresUtc.ToString()
+            };
         }
 
         #region IDisposable Members
