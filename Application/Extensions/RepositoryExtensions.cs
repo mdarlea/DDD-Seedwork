@@ -15,7 +15,6 @@ namespace Swaksoft.Application.Seedwork.Extensions
     {
         private readonly IEntityValidator entityValidator;
         private readonly T entity;
-        private readonly bool isValid;
 
         internal EntityResult(IEntityValidator entityValidator, T entity, bool isValid)
         {
@@ -23,13 +22,15 @@ namespace Swaksoft.Application.Seedwork.Extensions
             if (entity == null) throw new ArgumentNullException(nameof(entity));
             this.entityValidator = entityValidator;
             this.entity = entity;
-            this.isValid = isValid;
+            IsValid = isValid;
         }
+
+        public bool IsValid { get; }
 
         public TResult ProjectAs<TResult>()
             where TResult: ActionResult, new()
         {
-            if (isValid) return entity.ProjectedAs<TResult>();
+            if (IsValid) return entity.ProjectedAs<TResult>();
             var errors = entityValidator.GetInvalidMessages(entity).ToList();
 
             var result = new TResult
