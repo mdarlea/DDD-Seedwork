@@ -14,7 +14,7 @@ namespace Swaksoft.Infrastructure.Crosscutting.TypeMapping
 {
     public static class TypeAdapterLocator
     {
-        static ITypeAdapterFactory _currentTypeAdapterFactory = null;
+        private static ITypeAdapterFactory _currentTypeAdapterFactory;
         private static readonly object _thisObject = new object();
         
         /// <summary>
@@ -28,6 +28,8 @@ namespace Swaksoft.Infrastructure.Crosscutting.TypeMapping
                 _currentTypeAdapterFactory = adapterFactory;    
             }
         }
+
+        public static ITypeAdapterFactory Current => _currentTypeAdapterFactory;
 
         /// <summary>
         /// Create a new type adapter from currect factory
