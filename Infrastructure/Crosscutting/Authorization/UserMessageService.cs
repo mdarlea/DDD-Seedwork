@@ -7,7 +7,7 @@ using Swaksoft.Infrastructure.Crosscutting.Authorization.Configuration;
 
 namespace Swaksoft.Infrastructure.Crosscutting.Authorization
 {
-    public class ApplicationUserMessageService : IIdentityMessageService
+    public class UserMessageService : IIdentityMessageService
     {
         public async Task SendAsync(IdentityMessage message)
         {

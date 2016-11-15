@@ -100,7 +100,7 @@
     <Compile Include="Configuration\EmailElement.cs" />
     <Compile Include="Configuration\EmailSection.cs" />
     <Compile Include="Configuration\LoginElement.cs" />
-    <Compile Include="ApplicationUserMessageService.cs" />
+    <Compile Include="UserMessageService.cs" />
     <Compile Include="IUserStore.cs" />
     <Compile Include="Token\AccessToken.cs" />
     <Compile Include="Token\AccessTokenGenerator.cs" />
