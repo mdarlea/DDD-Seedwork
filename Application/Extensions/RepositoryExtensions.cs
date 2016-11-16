@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Swaksoft.Application.Seedwork.Validation;
 using Swaksoft.Core.Dto;
 using Swaksoft.Domain.Seedwork;
@@ -44,6 +45,25 @@ namespace Swaksoft.Application.Seedwork.Extensions
     }
     public static class RepositoryExtensions
     {
+        public static async Task<EntityResult<T>> SaveEntityAsync<TEntity, T>(this IRepository<TEntity> repository, T entity)
+            where TEntity : class
+            where T : class, TEntity
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+
+            var entityValidator = EntityValidatorLocator.CreateValidator();
+            var isValid = entityValidator.IsValid(entity);
+
+            if (!isValid) return new EntityResult<T>(entityValidator, entity, false);
+
+            using (var transaction = repository.BeginTransaction())
+            {
+                repository.Add(entity);
+                await transaction.CommitAsync();
+            }
+            return new EntityResult<T>(entityValidator, entity, true);
+        }
+
         public static EntityResult<T> SaveEntity<TEntity,T>(this IRepository<TEntity> repository, T entity)
             where TEntity : class
             where T: class, TEntity
