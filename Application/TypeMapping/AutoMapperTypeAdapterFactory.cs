@@ -16,8 +16,12 @@ namespace Swaksoft.Application.Seedwork.TypeMapping
         {
             //scan all assemblies finding Automapper Profile
             //ToDo: Fix the Unity issue
-            var profiles = AppDomain.CurrentDomain
-                                    .GetAssemblies().Where(a=>!a.FullName.Contains("Microsoft.Practices.Unity"))
+          var profiles = AppDomain.CurrentDomain
+                                    .GetAssemblies()
+                                    .Where(a =>
+                                        !a.FullName.Contains("Microsoft.Practices.Unity") &&
+                                        !a.FullName.Contains("AutoMapper") &&
+                                        !a.FullName.Contains("Tweetinvi"))
                                     .SelectMany(a => a.GetTypes())
                                     .Where(t => t.BaseType == typeof(Profile));
 

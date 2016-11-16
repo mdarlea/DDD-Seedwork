@@ -12,6 +12,7 @@
 
 
 using System;
+using System.Threading.Tasks;
 
 namespace Swaksoft.Domain.Seedwork
 {
@@ -34,6 +35,8 @@ namespace Swaksoft.Domain.Seedwork
         /// then an exception is thrown
         ///</remarks>
         void Commit();
+
+        Task<int> CommitAsync();
 
         /// <summary>
         /// Commit all changes made in  a container.
