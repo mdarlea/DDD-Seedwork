@@ -12,11 +12,19 @@ namespace Swaksoft.Domain.Seedwork.Aggregates
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public override int Id { get; set; }
+        public override int Id { get; protected set; }
 
         public override bool IsTransient()
         {
             return (Id < 1);
+        }
+
+        public override void ChangeCurrentIdentity(int identity)
+        {
+            if (identity > 0)
+            {
+                Id = identity;
+            }
         }
     }
 
@@ -25,7 +33,7 @@ namespace Swaksoft.Domain.Seedwork.Aggregates
     /// </summary>
     public abstract class Entity<TId>
     {
-        int? _requestedHashCode;
+        int? requestedHashCode;
 
         /// <summary>
         /// Get the persisten object identifier
@@ -33,7 +41,7 @@ namespace Swaksoft.Domain.Seedwork.Aggregates
         [Key]
         public virtual TId Id
         {
-            get; set; 
+            get; protected set; 
         }
 
         /// <summary>
@@ -49,10 +57,12 @@ namespace Swaksoft.Domain.Seedwork.Aggregates
         /// Change current identity for a new non transient identity
         /// </summary>
         /// <param name="identity">the new identity</param>
-        public void ChangeCurrentIdentity(TId identity)
+        public virtual void ChangeCurrentIdentity(TId identity)
         {
-            if (!IsTransient())
+            if (!identity.Equals(default(TId)))
+            {
                 Id = identity;
+            }
         }
 
         #region Overrides Methods
@@ -83,10 +93,10 @@ namespace Swaksoft.Domain.Seedwork.Aggregates
         {
             if (IsTransient()) return base.GetHashCode();
 
-            if (!_requestedHashCode.HasValue)
-                _requestedHashCode = Id.GetHashCode() ^ 31; // XOR for random distribution (http://blogs.msdn.com/b/ericlippert/archive/2011/02/28/guidelines-and-rules-for-gethashcode.aspx)
+            if (!requestedHashCode.HasValue)
+                requestedHashCode = Id.GetHashCode() ^ 31; // XOR for random distribution (http://blogs.msdn.com/b/ericlippert/archive/2011/02/28/guidelines-and-rules-for-gethashcode.aspx)
 
-            return _requestedHashCode.Value;
+            return requestedHashCode.Value;
         }
 
         public static bool operator ==(Entity<TId> left, Entity<TId> right)

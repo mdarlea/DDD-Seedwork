@@ -12,9 +12,12 @@
 
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Swaksoft.Domain.Seedwork;
 using Swaksoft.Domain.Seedwork.Specification;
 using Swaksoft.Infrastructure.Crosscutting.Logging;
@@ -151,6 +154,12 @@ namespace Swaksoft.Infrastructure.Data.Seedwork.Repositories
         {
             return GetQuery().Where(specification.SatisfiedBy());
         }
+
+        public virtual async Task<IList<TEntity>> AllMatchingAsync(ISpecification<TEntity> specification)
+        {
+            return await AllMatching(specification).ToListAsync();
+        }
+
       
         public virtual IQueryable<TEntity> GetPaged<KProperty>(int pageIndex, int pageCount, Expression<Func<TEntity, KProperty>> orderByExpression, bool ascending)
         {
@@ -170,6 +179,11 @@ namespace Swaksoft.Infrastructure.Data.Seedwork.Repositories
         public virtual IQueryable<TEntity> GetFiltered(Expression<Func<TEntity, bool>> filter)
         {
             return GetQuery().Where(filter);
+        }
+
+        public async Task<IList<TEntity>> GetFilteredAsync(Expression<Func<TEntity, bool>> filter)
+        {
+            return await GetFiltered(filter).ToListAsync();
         }
 
         public virtual TEntity GetSingle(Expression<Func<TEntity, bool>> filter)

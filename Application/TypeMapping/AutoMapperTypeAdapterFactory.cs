@@ -23,7 +23,7 @@ namespace Swaksoft.Application.Seedwork.TypeMapping
                                         !a.FullName.Contains("AutoMapper") &&
                                         !a.FullName.Contains("Tweetinvi"))
                                     .SelectMany(a => a.GetTypes())
-                                    .Where(t => t.BaseType == typeof(Profile));
+                                    .Where(t => t.BaseType == typeof(AutoMapperProfile));
 
             Mapper.Initialize(cfg =>
             {

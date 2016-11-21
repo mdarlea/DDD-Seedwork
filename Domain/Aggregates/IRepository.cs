@@ -11,8 +11,10 @@
 //===================================================================================
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Swaksoft.Domain.Seedwork.Specification;
 
 namespace Swaksoft.Domain.Seedwork.Aggregates
@@ -91,6 +93,8 @@ namespace Swaksoft.Domain.Seedwork.Aggregates
         /// <returns></returns>
         IQueryable<TEntity> AllMatching(ISpecification<TEntity> specification);
 
+        Task<IList<TEntity>> AllMatchingAsync(ISpecification<TEntity> specification);
+
         /// <summary>
         /// Get all elements of type TEntity in repository
         /// </summary>
@@ -107,6 +111,8 @@ namespace Swaksoft.Domain.Seedwork.Aggregates
         /// <param name="filter">Filter that each element do match</param>
         /// <returns>List of selected elements</returns>
         IQueryable<TEntity> GetFiltered(Expression<Func<TEntity, bool>> filter);
+
+        Task<IList<TEntity>> GetFilteredAsync(Expression<Func<TEntity, bool>> filter);
 
         /// <summary>
         /// Get one element of type TEntity in repository

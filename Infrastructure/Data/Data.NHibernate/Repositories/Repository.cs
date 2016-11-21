@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Linq;
 using Swaksoft.Domain.Seedwork;
@@ -77,6 +79,11 @@ namespace Swaksoft.Infrastructure.Data.NHibernate.Seedwork.Repositories
             return Session.Query<TEntity>().Where(specification.SatisfiedBy());
         }
 
+        public Task<IList<TEntity>> AllMatchingAsync(ISpecification<TEntity> specification)
+        {
+            throw new NotImplementedException();
+        }
+
         public IQueryable<TEntity> GetPaged<KProperty>(int pageIndex, int pageCount, Expression<Func<TEntity, KProperty>> orderByExpression, bool @ascending)
         {
             throw new NotImplementedException();
@@ -85,6 +92,11 @@ namespace Swaksoft.Infrastructure.Data.NHibernate.Seedwork.Repositories
         public IQueryable<TEntity> GetFiltered(Expression<Func<TEntity, bool>> filter)
         {
             return Session.Query<TEntity>().Where(filter);
+        }
+
+        public Task<IList<TEntity>> GetFilteredAsync(Expression<Func<TEntity, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
 
         public TEntity GetSingle(Expression<Func<TEntity, bool>> filter)
