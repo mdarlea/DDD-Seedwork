@@ -16,7 +16,7 @@ namespace Swaksoft.Application.Seedwork.Extensions
     {
         private readonly IEntityValidator entityValidator;
         private readonly T entity;
-
+        
         internal EntityResult(IEntityValidator entityValidator, T entity, bool isValid)
         {
             if (entityValidator == null) throw new ArgumentNullException(nameof(entityValidator));
@@ -26,6 +26,7 @@ namespace Swaksoft.Application.Seedwork.Extensions
             IsValid = isValid;
         }
 
+        public T Entity => entity;
         public bool IsValid { get; }
 
         public TResult ProjectAs<TResult>()

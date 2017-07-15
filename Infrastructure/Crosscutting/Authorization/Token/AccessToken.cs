@@ -7,6 +7,7 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
         public bool HasRegistered { get; set; }
         public string ExternalUserName { get; set; }
         public string UserName { get; set; }
+        public string UserId { get; set; }
         public string Token { get; set; }
         public string TokenType { get; set; }
         public int ExpiresIn { get; set; }

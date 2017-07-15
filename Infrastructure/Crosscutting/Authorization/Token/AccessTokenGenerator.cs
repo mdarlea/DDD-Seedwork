@@ -47,6 +47,7 @@ namespace Swaksoft.Infrastructure.Crosscutting.Authorization.Token
                 HasRegistered = true,
                 ExternalUserName = user.UserName,
                 UserName = user.UserName,
+                UserId = user.Id,
                 Token = refreshToken,
                 TokenType = "bearer",
                 ExpiresIn = expiration.Second,
